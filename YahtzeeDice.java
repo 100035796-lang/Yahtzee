@@ -30,39 +30,41 @@ public class YahtzeeDice {
 	// main can be inside the same class.
 	// notice that we can create YahtzeeDice objects inside the 
 	// main() of the YahtzeeDice class.
-	public static void main(String[] args) {
-
-		// ***(3) What's wrong here?
-//		roll();
-//		roll();
-
-		// Declare 2 different BuggyYahtzeeDice objects.  Call the 2 different constructors.
-		YahtzeeDice sixSidedQuintetOfDice = new YahtzeeDice();
-		YahtzeeDice twelveSidedQuintetOfDice = new YahtzeeDice(12);
-
-		System.out.println("Test rolling of default yahtzee dice: " + sixSidedQuintetOfDice.roll());
-		System.out.println("Test .toString() of default yahtzee dice: " + sixSidedQuintetOfDice);
-		System.out.println("Test getDiceValues of default yahtzee dice: ");
-		for(int i = 0; i < 5; i++) {
-			System.out.print(sixSidedQuintetOfDice.getDiceValues()[i] + ", ");
-		}
-
-		System.out.println("Test rolling of 12-sided yahtzee dice: " + twelveSidedQuintetOfDice.roll());
-		System.out.println("Test .toString() of 12-sided yahtzee dice: " + twelveSidedQuintetOfDice);
-		System.out.println("Test getDiceValues of 12-sided yahtzee dice: ");
-		for(int i = 0; i < 5; i++) {
-			System.out.print(twelveSidedQuintetOfDice.getDiceValues()[i] + ", ");
-		}
-
-
-	}
+//	public static void main(String[] args) {
+//
+//		// ***(3) What's wrong here?
+////		roll();
+////		roll();
+//
+//		// Declare 2 different BuggyYahtzeeDice objects.  Call the 2 different constructors.
+//		YahtzeeDice sixSidedQuintetOfDice = new YahtzeeDice();
+//		YahtzeeDice twelveSidedQuintetOfDice = new YahtzeeDice(12);
+//
+//		System.out.println("Test rolling of default yahtzee dice: " + sixSidedQuintetOfDice.roll());
+//		System.out.println("Test .toString() of default yahtzee dice: " + sixSidedQuintetOfDice);
+//		System.out.println("Test getDiceValues of default yahtzee dice: ");
+//		for(int i = 0; i < 5; i++) {
+//			System.out.print(sixSidedQuintetOfDice.getDiceValues()[i] + ", ");
+//		}
+//
+//		System.out.println("Test rolling of 12-sided yahtzee dice: " + twelveSidedQuintetOfDice.roll());
+//		System.out.println("Test .toString() of 12-sided yahtzee dice: " + twelveSidedQuintetOfDice);
+//		System.out.println("Test getDiceValues of 12-sided yahtzee dice: ");
+//		for(int i = 0; i < 5; i++) {
+//			System.out.print(twelveSidedQuintetOfDice.getDiceValues()[i] + ", ");
+//		}
+//
+//
+//	}
 
 	//rolls all 5 dice and returns the total of the dice
-	public int roll() { 
+	public int roll(int[] rollSpecificDie) { 
 		int sum = 0;
 		for (int i = 0; i < dice.length; i++) {
-			dice[i].roll();
-			sum += dice[i].getDieValue();
+			if (rollSpecificDie[i] == 0) {
+				dice[i].roll();
+				sum += dice[i].getDieValue();
+			}
 		}
 
 //		sum += (int)(Math.random()*6) + 1;
